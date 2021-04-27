@@ -1,0 +1,48 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+# specific branch build with batching
+trigger:
+  branches:
+    include:
+      - "*" # must quote since "*" is a YAML reserved character; we want a string
+    exclude:
+      - feature/upgradelab
+  paths:
+    include:
+      - "*" # must quote since "*" is a YAML reserved character; we want a string
+    exclude:
+      - api/.gitignore
+      - api/README.md
+      - ui/.gitignore
+      - ui/README.md
+      - .github/*
+      - README.md
+
+# stops PRs not related to this branch from triggering a build
+pr:
+  branches:
+    include:
+      - "main"
+      - "releases/*"
+    exclude:
+      - feature/upgradelab
+  paths:
+    include:
+      - "*" # must quote since "*" is a YAML reserved character; we want a string
+    exclude:
+      - api/.gitignore
+      - api/README.md
+      - ui/.gitignore
+      - ui/README.md
+      - .github/*
+      - README.md
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
