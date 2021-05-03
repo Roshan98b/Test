@@ -21,24 +21,6 @@ trigger:
       - .github/*
       - README.md
 
-# stops PRs not related to this branch from triggering a build
-pr:
-  branches:
-    include:
-      - "master"
-      - "releases/*"
-    exclude:
-      - feature/upgradelab
-  paths:
-    include:
-      - "*" # must quote since "*" is a YAML reserved character; we want a string
-    exclude:
-      - api/.gitignore
-      - api/README.md
-      - ui/.gitignore
-      - ui/README.md
-      - .github/*
-      - README.md
 
 pool:
   vmImage: ubuntu-latest
