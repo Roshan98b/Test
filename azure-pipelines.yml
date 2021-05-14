@@ -7,16 +7,14 @@
 trigger:
   branches:
     include:
-      - master
-    exclude:
-      - "*"
+      - "master"
 
 pr:
   branches:
     include:
       - "*"
     exclude:
-      - feature/upgradelab
+      - "feature/upgradelab"
 
 pool:
   vmImage: ubuntu-latest
