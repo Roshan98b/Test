@@ -42,4 +42,3 @@ steps:
     targetType: 'inline'
     script: 'echo ''Hello world 4'''
 
-
