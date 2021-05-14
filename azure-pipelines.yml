@@ -3,18 +3,17 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-# specific branch build with batching
 trigger:
   branches:
     include:
       - "master"
+    exclude:
+      - "releases/*"
 
 pr:
   branches:
     include:
       - "*"
-    exclude:
-      - "feature/upgradelab"
 
 pool:
   vmImage: ubuntu-latest
