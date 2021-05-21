@@ -21,11 +21,13 @@ pool:
 steps:
 - task: Bash@3
   displayName: "Bash 1"
+  condition: eq(variables['Build.Reason'], 'BatchedCI')
   inputs:
     targetType: 'inline'
     script: 'echo ''Hello world 1'''
 - task: Bash@3
   displayName: "Bash 2"
+  condition: eq(variables['Build.Reason'], 'PullRequest')
   inputs:
     targetType: 'inline'
     script: 'echo ''Hello world 2'''
